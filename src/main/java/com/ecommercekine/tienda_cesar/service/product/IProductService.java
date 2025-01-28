@@ -15,4 +15,5 @@ public interface IProductService {
     List<Product> getProductsByBrand(String brand);
     List<Product> getProductsByCategoryAndBrand(Long categoryId, String brand);
     List<Product> getProductsByName(String name);
+    Long countProductsByCategory(String brand, String name);
 }
