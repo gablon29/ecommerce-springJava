@@ -34,7 +34,12 @@ public class ProductService implements IProductService{
 
     @Override
     public void updateProduct(Long id, Product product) {
-
+        productRepository.findById(id).ifPresentOrElse(p -> {
+            product.setId(p.getId());
+            productRepository.save(product);
+        }, () -> {
+            throw new ProductNotFoundException("Product not found");
+        });
     }
 
     @Override
