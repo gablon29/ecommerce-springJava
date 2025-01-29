@@ -3,6 +3,7 @@ package com.ecommercekine.tienda_cesar.service.product;
 import com.ecommercekine.tienda_cesar.exceptions.ProductNotFoundException;
 import com.ecommercekine.tienda_cesar.model.Product;
 import com.ecommercekine.tienda_cesar.repository.ProductRepository;
+import com.ecommercekine.tienda_cesar.request.AddProductRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService implements IProductService{
 
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
 
     @Override
@@ -20,8 +21,19 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public Product save(AddProductRequest product) {
+        return null;
+    }
+
+    public Product create(AddProductRequest product) {
+        Product newProduct = new Product();
+        newProduct.setName(product.getName());
+        newProduct.setBrand(product.getBrand());
+        newProduct.setPrice(product.getPrice());
+        newProduct.setStock(product.getStock());
+        newProduct.setDescription(product.getDescription());
+        newProduct.setCategory(product.getCategory());
+        return productRepository.save(newProduct);
     }
 
     @Override
@@ -64,11 +76,11 @@ public class ProductService implements IProductService{
 
     @Override
     public List<Product> getProductsByName(String name) {
-        return List.of();
+        return productRepository.findByName(name);
     }
 
     @Override
-    public Long countProductsByCategory(String brand, String name) {
-        return 0L;
+    public Long countProductsByBrandAndName(String brand, String name) {
+        return productRepository.countByBrandAndName(brand, name);
     }
 }
