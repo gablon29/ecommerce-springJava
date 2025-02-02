@@ -2,6 +2,7 @@ package com.ecommercekine.tienda_cesar.service.product;
 
 import com.ecommercekine.tienda_cesar.model.Product;
 import com.ecommercekine.tienda_cesar.request.AddProductRequest;
+import com.ecommercekine.tienda_cesar.request.ProductUpdateRequest;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface IProductService {
     Product findById(Long id);
     Product save(AddProductRequest product);
     void delete(Long id);
-    void updateProduct(Long id, Product product);
+    Product updateProduct(ProductUpdateRequest request, Long id);
 
     List<Product> findAll();
     List<Product> findByCategoryName(String category);
