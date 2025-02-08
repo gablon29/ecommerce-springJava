@@ -7,11 +7,8 @@ import com.ecommercekine.tienda_cesar.model.Product;
 import com.ecommercekine.tienda_cesar.repository.ImageRepository;
 import com.ecommercekine.tienda_cesar.service.product.IProductService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.tool.schema.spi.SqlScriptException;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.sql.rowset.serial.SerialBlob;
 import java.io.IOException;
 import java.sql.SQLException;
