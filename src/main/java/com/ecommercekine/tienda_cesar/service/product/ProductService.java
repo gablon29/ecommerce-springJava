@@ -1,5 +1,6 @@
 package com.ecommercekine.tienda_cesar.service.product;
 
+import com.ecommercekine.tienda_cesar.dto.ProductDto;
 import com.ecommercekine.tienda_cesar.exceptions.ProductNotFoundException;
 import com.ecommercekine.tienda_cesar.model.Category;
 import com.ecommercekine.tienda_cesar.model.Product;
@@ -102,5 +103,15 @@ public class ProductService implements IProductService{
     @Override
     public Long countProductsByBrandAndName(String brand, String name) {
         return productRepository.countByBrandAndName(brand, name);
+    }
+
+    @Override
+    public List<ProductDto> getConvertProducts(List<Product> products) {
+        return products.stream().map(this::convertProduct).toList();
+    }
+
+    @Override
+    public ProductDto convertProduct(Product product) {
+        return null;
     }
 }
