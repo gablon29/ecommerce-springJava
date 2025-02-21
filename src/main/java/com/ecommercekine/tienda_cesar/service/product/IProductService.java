@@ -20,6 +20,7 @@ public interface IProductService {
     List<Product> getProductsByName(String name);
     Long countProductsByBrandAndName(String brand, String name);
 
+    List<Product> getProductsByBrandAndName(String brand, String name);
     List<ProductDto> getConvertProducts(List<Product> products);
 
     ProductDto convertProduct(Product product);
